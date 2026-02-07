@@ -82,6 +82,20 @@
 			<version>4.0.1</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- jasper 의존성 설정 jsp -> servlet 변환 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		<!-- jstl 에 대한 두 개 라이브러리 -->
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
