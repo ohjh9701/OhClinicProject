@@ -1,5 +1,7 @@
 package com.ohclinic.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public Doctor read(Doctor doctor) throws Exception {
 		return doctorMapper.read(doctor);
+	}
+
+	@Override
+	public List<Doctor> list() throws Exception {
+		return doctorMapper.list();
 	}
 
 }

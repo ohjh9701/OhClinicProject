@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohclinic.mapper.PatientMapper">
+
+<resultMap type="Patient" id="patientMap">
+		<id property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="birthYear" column="birth_year" />
+		<result property="gender" column="gender" />
+		<result property="age" column="age" />
+		<result property="phone" column="phone" />
+		<result property="location" column="location" />
+		<result property="lastReserv" column="last_reserv" />
+		<result property="nextReserv" column="next_reserv" />
+		<collection property="doctor" resultMap="doctorMap">
+		</collection>
+	</resultMap>
+	<resultMap type="Doctor" id="doctorMap">
+		<result property="no" column="no" />
+		<result property="name" column="D_NAME" />
+	</resultMap>
+
+<select id="list" resultMap="patientMap">
+	SELECT P.NO, P.NAME, P.GENDER, P.AGE, p.phone, P.LOCATION, LAST_RESERV, NEXT_RESERV, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON P.DC_NO = D.NO
+</select>
+
+<insert id="create">
+	INSERT INTO PATIENT VALUES(PATIENT_SEQ.NEXTVAL, #{name}, #{birthYear}, NULL, 0, #{phone}, #{location}, 
+                            null, null, #{doctor.no})
+</insert>
+
+<delete id="delete">
+	DELETE FROM PATIENT WHERE NO = #{no}
+</delete>
+
+
+</mapper>

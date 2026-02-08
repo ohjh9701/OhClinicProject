@@ -6,4 +6,8 @@
 	SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION FROM DOCTOR WHERE ID = #{id} AND PASSWORD = #{password}
 </select>
 
+<select id="list">
+	SELECT * FROM DOCTOR
+</select>
+
 </mapper>
