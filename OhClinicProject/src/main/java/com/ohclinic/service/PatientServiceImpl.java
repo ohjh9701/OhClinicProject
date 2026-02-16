@@ -21,12 +21,12 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Patient read(Patient patient) throws Exception {
-		return null;
+		return patientMapper.read(patient);
 	}
 
 	@Override
 	public int update(Patient patient) throws Exception {
-		return 0;
+		return patientMapper.update(patient);
 	}
 
 	@Override

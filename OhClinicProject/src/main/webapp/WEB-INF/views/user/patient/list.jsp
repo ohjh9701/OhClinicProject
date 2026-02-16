@@ -85,7 +85,7 @@
                             </td>
                             <td><span class="badge bg-light text-dark border">ID: ${p.doctor.name}</span></td>
                             <td class="text-center">
-                                <button class="btn btn-outline-warning btn-action me-1">수정</button>
+                                <button class="btn btn-outline-warning btn-action me-1" onclick="confirmUpdate(${p.no})" >수정</button>
                                 <button class="btn btn-outline-danger btn-action" onclick="confirmDelete(${p.no})">삭제</button>
                             </td>
                         </tr>
@@ -106,6 +106,11 @@
     function confirmDelete(no) {
         if(confirm(no + "번 환자 정보를 삭제하시겠습니까?")) {
             location.href = "/ohclinic/patient/delete?no=" + no;
+        }
+    }
+    function confirmUpdate(no) {
+        if(confirm(no + "번 환자 정보를 수정하시겠습니까?")) {
+            location.href = "/ohclinic/patient/updateForm?no=" + no;
         }
     }
 </script>

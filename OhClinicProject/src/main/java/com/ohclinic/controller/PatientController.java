@@ -93,6 +93,41 @@ public class PatientController {
 		return "user/failed";
 	}
 	
+	@GetMapping("/patient/updateForm")
+	public String getMethodName(Patient p, Model model) {
+		log.info("%d".formatted(p.getNo()));
+	    try {
+	        Patient patient = patientService.read(p);
+	        if(patient == null) return "redirect:/ohclinic/patient/list";
+	        
+	        model.addAttribute("patient", patient);
+	        model.addAttribute("doctorList", doctorService.list()); 
+	        
+	        log.info(patient.toString());
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return "user/patient/updateForm";
+	}
+	
+	@PostMapping("/patient/update")
+	public String postMethodName(Patient patient, Model model) {
+		try {
+	        int count = patientService.update(patient);
+	        
+	        if(count > 0) {
+				return "redirect:/ohclinic/patient/list";
+			}
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		model.addAttribute("msg", "환자 수정 오류입니다.");
+		return "user/failed";
+	}
+	
+	
+	
 	
 	
 	

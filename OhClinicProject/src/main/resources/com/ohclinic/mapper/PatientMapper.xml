@@ -3,25 +3,27 @@
 <mapper namespace="com.ohclinic.mapper.PatientMapper">
 
 <resultMap type="Patient" id="patientMap">
-		<id property="no" column="no" />
-		<result property="name" column="name" />
-		<result property="birthYear" column="birth_year" />
-		<result property="gender" column="gender" />
-		<result property="age" column="age" />
-		<result property="phone" column="phone" />
-		<result property="location" column="location" />
-		<result property="lastReserv" column="last_reserv" />
-		<result property="nextReserv" column="next_reserv" />
-		<collection property="doctor" resultMap="doctorMap">
-		</collection>
-	</resultMap>
-	<resultMap type="Doctor" id="doctorMap">
-		<result property="no" column="no" />
-		<result property="name" column="D_NAME" />
-	</resultMap>
+    <id property="no" column="NO" />
+    <result property="name" column="NAME" />
+    <result property="birthYear" column="BIRTH_YEAR" />
+    <result property="gender" column="GENDER" />
+    <result property="age" column="AGE" />
+    <result property="phone" column="PHONE" />
+    <result property="location" column="LOCATION" />
+    <result property="lastReserv" column="LAST_RESERV" />
+    <result property="nextReserv" column="NEXT_RESERV" />
+    
+    <association property="doctor" javaType="Doctor">
+        <result property="name" column="D_NAME" />
+    </association>
+</resultMap>
 
 <select id="list" resultMap="patientMap">
-	SELECT P.NO, P.NAME, P.GENDER, P.AGE, p.phone, P.LOCATION, LAST_RESERV, NEXT_RESERV, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON P.DC_NO = D.NO
+	SELECT P.NO, P.NAME, P.GENDER, P.AGE, p.phone, P.LOCATION, LAST_RESERV, NEXT_RESERV, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON P.DC_NO = D.NO ORDER BY P.NO ASC
+</select>
+
+<select id="read" resultMap="patientMap">
+	SELECT P.NO, P.NAME, P.GENDER, P.BIRTH_YEAR, P.AGE, p.phone, P.LOCATION, LAST_RESERV, NEXT_RESERV, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON P.DC_NO = D.NO WHERE P.NO = #{no}
 </select>
 
 <insert id="create">
@@ -32,6 +34,15 @@
 <delete id="delete">
 	DELETE FROM PATIENT WHERE NO = #{no}
 </delete>
+
+<update id="update">
+    UPDATE PATIENT 
+    SET NAME = #{name},
+        PHONE = #{phone},
+        LOCATION = #{location},
+        DC_NO = #{doctor.no}
+    WHERE NO = #{no}
+</update>
 
 
 </mapper>
