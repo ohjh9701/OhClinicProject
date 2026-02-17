@@ -18,4 +18,7 @@ public class Patient {
 	private Date nextReserv;
 	private Doctor doctor;
 	
+	private String searchName;
+	private String searchLocation;
+	
 }

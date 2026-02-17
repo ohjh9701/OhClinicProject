@@ -51,16 +51,15 @@
 <main class="main-content">
     <header class="d-flex justify-content-between align-items-center mb-5">
         <h3 class="fw-bold">관리자 시스템 현황</h3>
-        <span class="badge bg-light text-dark p-2 border">접속시간: 2026-02-07 22:40</span>
     </header>
 
     <div class="row g-4">
         <div class="col-md-3">
-            <div class="card card-stat p-3 bg-white">
+            <div class="card card-stat p-3 bg-white" onclick="location.href='/ohclinic/patient/list'" style="cursor: pointer">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="text-muted">환자 관리</h6>
-                        <p class="mb-0 small text-primary">등록/수정/삭제</p>
+                        <p class="mb-0 small text-primary">환자 정보를 등록하고 관리합니다.</p>
                     </div>
                     <i class="bi bi-heart-pulse fs-1 text-danger"></i>
                 </div>

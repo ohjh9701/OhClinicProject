@@ -40,6 +40,11 @@ public class AdminController {
 		return "user/failed";
 	}
 	
+	@GetMapping("/adminMain")
+	public String adminMain() {
+	    return "user/adminMain"; 
+	}
+	
 	
 	
 }

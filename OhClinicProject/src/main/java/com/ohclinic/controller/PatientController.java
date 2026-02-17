@@ -94,7 +94,7 @@ public class PatientController {
 	}
 	
 	@GetMapping("/patient/updateForm")
-	public String getMethodName(Patient p, Model model) {
+	public String patientUpdateForm(Patient p, Model model) {
 		log.info("%d".formatted(p.getNo()));
 	    try {
 	        Patient patient = patientService.read(p);
@@ -112,7 +112,7 @@ public class PatientController {
 	}
 	
 	@PostMapping("/patient/update")
-	public String postMethodName(Patient patient, Model model) {
+	public String patientUpdate(Patient patient, Model model) {
 		try {
 	        int count = patientService.update(patient);
 	        
@@ -126,10 +126,20 @@ public class PatientController {
 		return "user/failed";
 	}
 	
-	
-	
-	
-	
+	@GetMapping("/patient/search")
+	public String searchPatient(Patient patient, Model model) {
+		log.info(patient.toString());
+		List<Patient> patientList = null;
+		try {
+			patientList = patientService.patientSearch(patient);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		log.info(patientList.toString());
+		model.addAttribute("patientList",patientList);
+		
+		return "user/patient/list";
+	}
 	
 	
 }

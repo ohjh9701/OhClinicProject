@@ -39,4 +39,9 @@ public class PatientServiceImpl implements PatientService {
 		return patientMapper.list();
 	}
 
+	@Override
+	public List<Patient> patientSearch(Patient patient) throws Exception {
+		return patientMapper.patientSearch(patient);
+	}
+
 }
