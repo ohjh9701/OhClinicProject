@@ -8,4 +8,5 @@ public interface DoctorMapper {
 
 	public Doctor read(Doctor doctor) throws Exception;
 	public List<Doctor> list() throws Exception;
+	public int create(Doctor doctor) throws Exception;
 }

@@ -22,5 +22,9 @@
         FROM DOCTOR
         ORDER BY NO ASC
     </select>
+    
+    <insert id="create">
+    	INSERT INTO DOCTOR VALUES(DOCTOR_SEQ.NEXTVAL,#{id},#{password},#{name},#{specialty},#{location}, #{workTime})
+    </insert>
 
 </mapper>

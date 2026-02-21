@@ -17,6 +17,8 @@ import com.ohclinic.service.DoctorService;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Slf4j
@@ -29,7 +31,7 @@ public class DoctorController {
 	DoctorService doctorService;
 	
 	@GetMapping("/doctor/manage")
-	public String getMethodName(Model model) {
+	public String doctorManageList(Model model) {
 		
 		try {
 			List<Doctor> doctorList = doctorService.list();
@@ -41,6 +43,29 @@ public class DoctorController {
 		
 		return "user/doctor/manageList";
 	}
+	
+	@GetMapping("/doctor/registerForm")
+	public String doctorRegisterForm(Model model) {
+		return "user/doctor/registerForm";
+	}
+	
+	@PostMapping("/doctor/register")
+	public String postMethodName(Doctor doctor, Model model) {
+		
+		int count;
+		try {
+			count = doctorService.create(doctor);
+			
+			if(count > 0) {
+				return "redirect:/ohclinic/doctor/manage";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("msg", "의사 등록 오류입니다."); // 에러 메시지 전달
+		return "user/failed";
+	}
+	
 	
 	
 }
