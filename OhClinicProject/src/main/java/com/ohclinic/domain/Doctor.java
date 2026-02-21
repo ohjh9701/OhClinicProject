@@ -13,4 +13,6 @@ public class Doctor {
 	private String location;
 	private String workTime;
 	
+	private int enabled;
+	
 }

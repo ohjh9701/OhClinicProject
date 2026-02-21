@@ -15,5 +15,7 @@ public interface DoctorService {
 	public Doctor readDoctor(Doctor doctor) throws Exception;
 
 	public int update(Doctor doctor) throws Exception;
+
+	public int delete(Doctor doctor) throws Exception;
 	
 }

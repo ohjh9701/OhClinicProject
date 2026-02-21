@@ -39,4 +39,9 @@ public class DoctorServiceImpl implements DoctorService {
 		return doctorMapper.update(doctor);
 	}
 
+	@Override
+	public int delete(Doctor doctor) throws Exception {
+		return doctorMapper.delete(doctor);
+	}
+
 }

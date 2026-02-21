@@ -97,7 +97,7 @@ body {
 							<c:forEach var="doc" items="${doctorList}">
 								<option value="${doc.no}"
 									${patient.doctor.no == doc.no ? 'selected' : ''}>
-									${doc.name} 과장 [${doc.specialty}]</option>
+									${doc.name} 원장 [${doc.specialty}]</option>
 							</c:forEach>
 						</select>
 					</div>

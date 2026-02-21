@@ -93,6 +93,20 @@ public class DoctorController {
 		return "user/failed";
 	}
 	
+	@GetMapping("/doctor/delete")
+	public String doctorDelete(Doctor doctor, Model model) {
+		try {
+	        int count = doctorService.delete(doctor);
+	        
+	        if(count > 0) {
+				return "redirect:/ohclinic/doctor/manage";
+			}
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		model.addAttribute("msg", "의사 삭제 오류입니다.");
+		return "user/failed";
+	}
 	
 	
 	
