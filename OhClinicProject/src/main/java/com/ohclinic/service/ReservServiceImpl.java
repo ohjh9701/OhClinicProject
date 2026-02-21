@@ -15,8 +15,8 @@ public class ReservServiceImpl implements ReservService{
 	ReservMapper reservMapper;
 
 	@Override
-	public int Create(Reserv reserv) throws Exception {
-		return 0;
+	public int create(Reserv reserv) throws Exception {
+		return reservMapper.create(reserv);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class ReservServiceImpl implements ReservService{
 
 	@Override
 	public List<Reserv> list() throws Exception {
-		return null;
+		return reservMapper.list();
 	}
 	
 	

@@ -14,13 +14,14 @@
 		<result property="nextReserv" column="NEXT_RESERV" />
 
 		<association property="doctor" javaType="Doctor">
+			<id property="no" column="DC_NO" />
 			<result property="name" column="D_NAME" />
 		</association>
 	</resultMap>
 
 	<select id="list" resultMap="patientMap">
 		SELECT P.NO, P.NAME, P.GENDER, P.AGE, p.phone, P.LOCATION, LAST_RESERV,
-		NEXT_RESERV, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON
+		NEXT_RESERV,p.DC_NO, D.NAME D_NAME FROM PATIENT P INNER JOIN DOCTOR D ON
 		P.DC_NO = D.NO ORDER BY P.NO ASC
 	</select>
 

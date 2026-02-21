@@ -37,7 +37,7 @@
             <a class="nav-link" href="/ohclinic/doctor/manage"><i class="bi bi-person-vcard"></i> 의사 관리</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/ohclinic/reservation/list"><i class="bi bi-calendar-check"></i> 예약 관리</a>
+            <a class="nav-link" href="/ohclinic/reserv/list"><i class="bi bi-calendar-check"></i> 예약 관리</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/ohclinic/sales/report"><i class="bi bi-graph-up-arrow"></i> 매출 관리</a>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card card-stat p-3 bg-white">
+            <div class="card card-stat p-3 bg-white" onclick="location.href='/ohclinic/reserv/list'" style="cursor: pointer">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="text-muted">예약 관리</h6>
