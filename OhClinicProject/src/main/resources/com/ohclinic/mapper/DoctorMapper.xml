@@ -2,12 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ohclinic.mapper.DoctorMapper">
 
-<select id="read">
-	SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION FROM DOCTOR WHERE ID = #{id} AND PASSWORD = #{password}
-</select>
+    <resultMap type="doctor" id="doctorMap">
+        <id property="no" column="NO" />
+        <result property="id" column="ID" />
+        <result property="password" column="PASSWORD" />
+        <result property="name" column="NAME" />
+        <result property="specialty" column="SPECIALTY" />
+        <result property="location" column="LOCATION" />
+        <result property="workTime" column="WORK_TIME" /> </resultMap>
 
-<select id="list">
-	SELECT * FROM DOCTOR
-</select>
+    <select id="read" resultMap="doctorMap">
+        SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION, WORK_TIME 
+        FROM DOCTOR 
+        WHERE ID = #{id} AND PASSWORD = #{password}
+    </select>
+
+    <select id="list" resultMap="doctorMap">
+        SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION, WORK_TIME
+        FROM DOCTOR
+        ORDER BY NO ASC
+    </select>
 
 </mapper>

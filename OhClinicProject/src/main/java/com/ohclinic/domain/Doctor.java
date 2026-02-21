@@ -11,5 +11,6 @@ public class Doctor {
 	private String name;
 	private String specialty;
 	private String location;
+	private String workTime;
 	
 }

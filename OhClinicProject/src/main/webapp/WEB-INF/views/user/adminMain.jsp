@@ -66,11 +66,11 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card card-stat p-3 bg-white">
-                <div class="d-flex justify-content-between">
+            <div class="card card-stat p-3 bg-white" onclick="location.href='/ohclinic/doctor/manage'" style="cursor: pointer">
+                <div class="d-flex justify-content-between" >
                     <div>
                         <h6 class="text-muted">의사 관리</h6>
-                        <p class="mb-0 small text-success">의사 정보 업데이트</p>
+                        <p class="mb-0 small text-success">담당의 정보를 등록하고 관리합니다.</p>
                     </div>
                     <i class="bi bi-person-badge fs-1 text-success"></i>
                 </div>
