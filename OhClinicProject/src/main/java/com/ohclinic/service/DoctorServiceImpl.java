@@ -29,4 +29,14 @@ public class DoctorServiceImpl implements DoctorService {
 		return doctorMapper.create(doctor);
 	}
 
+	@Override
+	public Doctor readDoctor(Doctor doctor) throws Exception{
+		return doctorMapper.readDoctor(doctor);
+	}
+
+	@Override
+	public int update(Doctor doctor) throws Exception {
+		return doctorMapper.update(doctor);
+	}
+
 }

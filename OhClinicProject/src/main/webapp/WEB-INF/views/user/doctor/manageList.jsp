@@ -142,7 +142,7 @@ body {
 
 	<script>
     function updateDoctor(no) {
-        location.href = "/ohclinic/doctor/update?no=" + no;
+        location.href = "/ohclinic/doctor/updateForm?no=" + no;
     }
 
     function deleteDoctor(no) {

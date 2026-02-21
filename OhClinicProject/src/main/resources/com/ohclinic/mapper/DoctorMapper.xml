@@ -16,6 +16,12 @@
         FROM DOCTOR 
         WHERE ID = #{id} AND PASSWORD = #{password}
     </select>
+    
+    <select id="readDoctor" resultMap="doctorMap">
+        SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION, WORK_TIME 
+        FROM DOCTOR 
+        WHERE NO = #{no}
+    </select>
 
     <select id="list" resultMap="doctorMap">
         SELECT NO, ID, PASSWORD, NAME, SPECIALTY, LOCATION, WORK_TIME
@@ -26,5 +32,9 @@
     <insert id="create">
     	INSERT INTO DOCTOR VALUES(DOCTOR_SEQ.NEXTVAL,#{id},#{password},#{name},#{specialty},#{location}, #{workTime})
     </insert>
+    
+    <update id="update">
+    	UPDATE DOCTOR SET password = #{password}, name = #{name}, specialty=#{specialty}, location=#{location}, WORK_TIME = #{workTime} where no = #{no}
+    </update>
 
 </mapper>

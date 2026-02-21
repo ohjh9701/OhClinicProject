@@ -66,6 +66,34 @@ public class DoctorController {
 		return "user/failed";
 	}
 	
+	@GetMapping("/doctor/updateForm")
+	public String doctorUpdateForm(Doctor doctor, Model model) {
+		Doctor doctor_ = null;
+		try {
+			doctor_ = doctorService.readDoctor(doctor);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("doctor", doctor_);
+		return "user/doctor/updateForm";
+	}
+	
+	@PostMapping("/doctor/update")
+	public String doctorUpdate(Doctor doctor, Model model) {
+		try {
+	        int count = doctorService.update(doctor);
+	        
+	        if(count > 0) {
+				return "redirect:/ohclinic/doctor/manage";
+			}
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		model.addAttribute("msg", "의사 수정 오류입니다.");
+		return "user/failed";
+	}
+	
+	
 	
 	
 }
